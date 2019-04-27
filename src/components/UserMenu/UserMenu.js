@@ -1,13 +1,25 @@
 import React from 'react'
+import {
+  Header,
+  List,
+  LinkItem,
+  StyledLink as Link
+} from './styled'
 
 const UserMenu = () => {
   return (
-    <nav>
-      <ul>
-        <li>Search</li>
-        <li>My favorites</li>
-      </ul>
-    </nav>
+    <Header>
+      <nav>
+        <List>
+          <LinkItem>
+            <Link to="/">Search</Link>
+          </LinkItem>
+          <LinkItem>
+            <Link to="/my-favorites">My favorites</Link>
+          </LinkItem>
+        </List>
+      </nav>
+    </Header>
   )
 }
 

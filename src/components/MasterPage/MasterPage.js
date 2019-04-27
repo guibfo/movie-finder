@@ -1,11 +1,15 @@
 import React from 'react'
-import { UserMenu, SearchBar } from '../../components'
+import { UserMenu } from '../../components'
+import Routes from '../../routes'
+import { Wrapper } from './styled'
 
 const MasterPage = () => {
   return (
     <>
       <UserMenu />
-      <SearchBar />
+      <Wrapper>
+        <Routes />
+      </Wrapper>
     </>
   )
 }
