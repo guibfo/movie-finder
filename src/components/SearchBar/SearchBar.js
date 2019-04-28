@@ -11,6 +11,7 @@ const SearchBar = props => {
   // Search Input state
   const [query, setQuery] = useState('')
 
+  // Set search query state
   const handleInputChange = e => {
     setQuery(e.target.value)
   }
