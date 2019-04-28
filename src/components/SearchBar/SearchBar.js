@@ -1,22 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 import {
   InputWrapper,
-  Input
+  Input,
+  Submit
 } from './styled'
 
-const SearchBar = () => {
+const SearchBar = props => {
+  // Search Input state
+  const [query, setQuery] = useState('')
+
+  const handleInputChange = e => {
+    setQuery(e.target.value)
+  }
+
+  const handleKeyDown = e => {
+    // If user presses enter submit the form
+    if (e.key === 'Enter') {
+      handleSubmit(e)
+    }
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    if (query !== '') {
+      props.history.push(`/search?title=${query}`)
+    }
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <InputWrapper>
         <Input
           type="text"
-          name="user"
-          placeholder="Search your movie name"
+          name="title"
+          placeholder="Search movie"
+          onKeyDown={handleKeyDown}
+          onChange={handleInputChange}
         />
       </InputWrapper>
-      <input type="submit" value="Search" />
+      <InputWrapper>
+        <Submit
+          type="submit"
+          value="Search"
+          onClick={handleSubmit}
+        />
+      </InputWrapper>
     </form>
   )
 }
 
-export default SearchBar
+SearchBar.propTypes = {
+  history: PropTypes.object
+}
+
+export default withRouter(SearchBar)

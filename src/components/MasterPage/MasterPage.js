@@ -1,5 +1,5 @@
 import React from 'react'
-import { UserMenu } from '../../components'
+import { UserMenu, Footer } from '../../components'
 import Routes from '../../routes'
 import { Wrapper } from './styled'
 
@@ -10,6 +10,7 @@ const MasterPage = () => {
       <Wrapper>
         <Routes />
       </Wrapper>
+      <Footer />
     </>
   )
 }
