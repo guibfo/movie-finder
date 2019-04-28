@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import qs from 'query-string'
-import { MoviesList } from '../../components'
+import { MoviesList, Loader } from '../../components'
 
 const SearchResults = props => {
   // Current page state
@@ -13,7 +13,7 @@ const SearchResults = props => {
   const [movies, setMovies] = useState([])
 
   // Loading state
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   // Movie query
   const query = qs.parse(props.history.location.search)
@@ -21,9 +21,9 @@ const SearchResults = props => {
   useEffect(() => {
     // API Call
     const fetchMovies = async () => {
-      setLoading(true)
       await axios.get(`https://jsonmock.hackerrank.com/api/movies/search/?Title=${query.title}&page=${page}`)
         .then((response) => {
+          // Concat results so load more works
           setMovies(movies.concat(response.data.data))
         })
         .catch(function (error) {
@@ -42,11 +42,14 @@ const SearchResults = props => {
   }
 
   return (
-    <>
-      <div>
+    <div style={{ height: '100%' }}>
+      {loading && (
+        <Loader />
+      )}
+      {!loading && (
         <MoviesList movies={movies} />
-      </div>
-    </>
+      )}
+    </div>
   )
 }
 

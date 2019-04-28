@@ -13,7 +13,7 @@ const SearchBar = props => {
 
   // Set search query state
   const handleInputChange = e => {
-    setQuery(e.target.value)
+    setQuery(encodeURIComponent(e.target.value))
   }
 
   const handleKeyDown = e => {
