@@ -30,7 +30,7 @@ const SearchResults = props => {
       await axios.get(`https://jsonmock.hackerrank.com/api/movies/search/?Title=${query.title}&page=${page}`)
         .then((response) => {
           // Concat results so load more works
-          setMovies(movies.concat(response.data.data))
+          setMovies(movies => movies.concat(response.data.data))
           setShowLoadMore(response.data.total_pages > page)
         })
         .catch(function (error) {
@@ -43,7 +43,7 @@ const SearchResults = props => {
     }
 
     fetchMovies()
-  }, [page])
+  }, [page, query.title])
 
   const handlePageChange = () => {
     setLoadMore(true)
@@ -51,7 +51,7 @@ const SearchResults = props => {
   }
 
   return (
-    <div style={{ height: '100%' }}>
+    <div style={{ margin: 'auto' }}>
       {loading && (
         <Loader />
       )}

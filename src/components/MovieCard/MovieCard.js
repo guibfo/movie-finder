@@ -12,13 +12,13 @@ import Placeholder from '../../assets/images/placeholder.jpg'
 
 const MovieCard = props => {
   const [isFavorite, setFavorite] = useState(false)
-  // Checks if movie is favorited on mount
+  // Checks if movie is favorited on component mount
   useEffect(() => {
     const currentFavorites = JSON.parse(localStorage.getItem('favorites')) || []
     if (currentFavorites.includes(props.movie.imdbID)) {
       setFavorite(true)
     }
-  })
+  }, [props.movie.imdbID])
 
   const handleToggleFavorite = id => {
     let currentFavorites = JSON.parse(localStorage.getItem('favorites')) || []

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Section = styled.section`
+  flex: 1;
   margin-top: 120px;
 
   @media (max-height: 516px) {
