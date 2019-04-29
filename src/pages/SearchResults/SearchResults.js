@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import qs from 'query-string'
-import { MoviesList, Loader } from '../../components'
+import { MoviesList, Loader, LoadMore } from '../../components'
 
 const SearchResults = props => {
   // Current page state
@@ -15,6 +15,12 @@ const SearchResults = props => {
   // Loading state
   const [loading, setLoading] = useState(true)
 
+  // Load More state
+  const [loadMore, setLoadMore] = useState(false)
+
+  // Load more button state
+  const [showLoadMore, setShowLoadMore] = useState(false)
+
   // Movie query
   const query = qs.parse(props.history.location.search)
 
@@ -25,12 +31,14 @@ const SearchResults = props => {
         .then((response) => {
           // Concat results so load more works
           setMovies(movies.concat(response.data.data))
+          setShowLoadMore(response.data.total_pages > page)
         })
         .catch(function (error) {
           console.log(error)
         })
         .then(() => {
           setLoading(false)
+          setLoadMore(false)
         })
     }
 
@@ -38,6 +46,7 @@ const SearchResults = props => {
   }, [page])
 
   const handlePageChange = () => {
+    setLoadMore(true)
     setPage(page + 1)
   }
 
@@ -47,7 +56,12 @@ const SearchResults = props => {
         <Loader />
       )}
       {!loading && (
-        <MoviesList movies={movies} />
+        <>
+          <MoviesList movies={movies} />
+          {showLoadMore && (
+            <LoadMore click={handlePageChange} loading={loadMore} />
+          )}
+        </>
       )}
     </div>
   )

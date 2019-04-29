@@ -1,15 +1,20 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { LoaderWrapper } from './styled'
 
-const Loader = () => {
+const Loader = props => {
   return (
-    <LoaderWrapper class="lds-css ng-scope">
+    <LoaderWrapper small={props.small}>
       <div className="lds-ripple">
         <div></div>
         <div></div>
       </div>
     </LoaderWrapper>
   )
+}
+
+Loader.propTypes = {
+  small: PropTypes.bool
 }
 
 export default Loader

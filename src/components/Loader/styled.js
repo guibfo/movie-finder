@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const LoaderWrapper = styled.div`
   align-items: center;
@@ -31,6 +31,14 @@ export const LoaderWrapper = styled.div`
       }
     }
   }
+
+  ${props => props.small && css`
+    .lds-ripple {
+      height: 25px;
+      width: 25px;
+      transform: translate(-17.5px, -17.5px) scale(0.175) translate(17.5px, 17.5px);
+    }
+  `}
 
   @keyframes lds-ripple {
 

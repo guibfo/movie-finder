@@ -27,7 +27,7 @@ const MoviesList = props => {
 }
 
 MoviesList.propTypes = {
-  movies: PropTypes.object
+  movies: PropTypes.array
 }
 
 export default MoviesList
