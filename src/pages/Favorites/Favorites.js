@@ -1,9 +1,12 @@
 import React from 'react'
+import { MoviesList } from '../../components'
 
 const Favorites = () => {
+  const movies = []
+
   return (
-    <div>
-      This is the favorites page
+    <div style={{ height: '100%' }}>
+      <MoviesList movies={movies} />
     </div>
   )
 }

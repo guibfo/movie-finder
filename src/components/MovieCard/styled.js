@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const MovieWrapper = styled.li`
   border-radius: 5px;
@@ -8,10 +8,6 @@ export const MovieWrapper = styled.li`
   position: relative;
   transition: all 0.2s ease-in-out;
   width: 300px;
-
-  &.favorite polygon {
-    fill: #ffff00;
-  }
 
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -38,6 +34,12 @@ export const FavoriteIcon = styled.div`
       fill: #ffff00;
     }
   }
+
+  ${props => props.favorite && css`
+    svg polygon {
+      fill: #ffff00;
+    }
+  `}
 `
 
 export const ImageWrapper = styled.div`
