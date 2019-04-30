@@ -10,6 +10,7 @@ export const Input = styled.input`
   border: none;
   border-radius: 45px;
   margin-bottom: 16px;
+  max-width: 100%;
   padding: 16px;
   transition: all 0.2s ease-in-out;
   width: 550px;
@@ -22,7 +23,7 @@ export const Input = styled.input`
   ${props => props.alt && css`
     margin-bottom: 0;
     margin-right: 32px;
-    width: 200px;
+    width: 145px;
   `}
 `
 

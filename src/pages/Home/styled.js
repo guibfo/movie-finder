@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Section = styled.section`
   flex: 1;
   margin-top: 120px;
+  max-width: 100%;
 
   @media (max-height: 516px) {
     margin-top: 20px;

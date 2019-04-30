@@ -13,6 +13,11 @@ export const MovieWrapper = styled.li`
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     transform: scale(1.05);
   }
+
+  @media (max-width: 390px) {
+    margin: 0 0 32px;
+    width: 288px;
+  }
 `
 
 export const FavoriteIcon = styled.div`
