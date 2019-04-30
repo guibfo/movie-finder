@@ -34,7 +34,7 @@ Build files will be in the ./build directory
 
 ## Demo
 
-You can see a demo of the project running at: TODO
+You can see a demo of the project running at: https://guibfo-movie-finder.netlify.com/
 
 ## License
 
