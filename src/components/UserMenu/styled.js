@@ -16,6 +16,7 @@ export const LinkItem = styled.li`
 `
 
 export const StyledLink = styled(Link)`
+  color: #222222;
   font-size: 13px;
   text-decoration: none;
 `
