@@ -29,6 +29,7 @@ export const Input = styled.input`
 `
 
 export const Submit = styled.input`
+  background-color: #f0f0f0;
   border: none;
   border-radius: 5px;
   color: #222222;
