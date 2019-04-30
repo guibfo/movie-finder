@@ -3,7 +3,12 @@ import PropTypes from 'prop-types'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import qs from 'query-string'
-import { MoviesList, Loader, LoadMore } from '../../components'
+import {
+  MoviesList,
+  Loader,
+  LoadMore,
+  SearchBar
+} from '../../components'
 
 const SearchResults = props => {
   // Current page state
@@ -52,6 +57,7 @@ const SearchResults = props => {
 
   return (
     <div style={{ margin: 'auto' }}>
+      <SearchBar alt />
       {loading && (
         <Loader />
       )}

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const InputWrapper = styled.div`
   display: flex;
@@ -18,6 +18,12 @@ export const Input = styled.input`
   &:focus {
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
   }
+
+  ${props => props.alt && css`
+    margin-bottom: 0;
+    margin-right: 32px;
+    width: 200px;
+  `}
 `
 
 export const Submit = styled.input`
@@ -32,4 +38,19 @@ export const Submit = styled.input`
   &:hover {
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
   }
+
+  ${props => props.alt && css`
+    margin-top: 0;
+  `}
+`
+
+export const Form = styled.form`
+  ${props => props.alt && css`
+    align-items: center;
+    display: flex;
+    left: 50%;
+    position: absolute;
+    top: 85px;
+    transform: translateX(-50%);
+  `}
 `

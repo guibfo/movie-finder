@@ -4,7 +4,8 @@ import { withRouter } from 'react-router-dom'
 import {
   InputWrapper,
   Input,
-  Submit
+  Submit,
+  Form
 } from './styled'
 
 const SearchBar = props => {
@@ -31,7 +32,7 @@ const SearchBar = props => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} alt={props.alt}>
       <InputWrapper>
         <Input
           type="text"
@@ -39,6 +40,7 @@ const SearchBar = props => {
           placeholder="Search movie"
           onKeyDown={handleKeyDown}
           onChange={handleInputChange}
+          alt={props.alt}
         />
       </InputWrapper>
       <InputWrapper>
@@ -46,14 +48,16 @@ const SearchBar = props => {
           type="submit"
           value="Search"
           onClick={handleSubmit}
+          alt={props.alt}
         />
       </InputWrapper>
-    </form>
+    </Form>
   )
 }
 
 SearchBar.propTypes = {
-  history: PropTypes.object
+  history: PropTypes.object,
+  alt: PropTypes.bool
 }
 
 export default withRouter(SearchBar)

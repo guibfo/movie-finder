@@ -4,7 +4,7 @@ export const MoviesWrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 32px auto 0;
+  margin: 128px auto 0;
   max-width: 1660px;
 `
 
